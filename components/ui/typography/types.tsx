@@ -1,4 +1,4 @@
-import { TextProps, TextStyle } from "react-native";
+import { StyleProp, TextProps, TextStyle } from "react-native";
 
 type TypographyVariant =
   | "text"
@@ -13,12 +13,12 @@ type TypographyVariant =
 
 type TypographyThemeProps = Omit<TextProps, "style"> & {
   as: Exclude<TypographyVariant, "text">;
-  style?: Omit<TextStyle, "fontFamily" | "fontSize" | "fontWeight">;
+  style?: StyleProp<Omit<TextStyle, "fontFamily" | "fontSize" | "fontWeight">>;
 };
 
 type TypographyDefaultProps = Omit<TextProps, "style"> & {
   as?: "text" | undefined;
-  style?: Omit<TextStyle, "fontFamily">;
+  style?: StyleProp<Omit<TextStyle, "fontFamily">>;
 };
 
 export type TypographyProps = TypographyThemeProps | TypographyDefaultProps;
