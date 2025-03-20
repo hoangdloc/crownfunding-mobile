@@ -43,24 +43,17 @@ export const ColorPalette = {
   error: "#eb5757"
 };
 
-const tintColorLight = "#0a7ea4";
-const tintColorDark = "#fff";
-
 export const Colors = {
   light: {
-    text: "#11181C",
     background: ColorPalette.whitish.liteBackground,
-    tint: tintColorLight,
-    icon: "#687076",
-    tabIconDefault: "#687076",
-    tabIconSelected: tintColorLight
+    headline: ColorPalette.neutral.text.text1
   },
   dark: {
-    text: "#ECEDEE",
     background: ColorPalette.dark.darkBg,
-    tint: tintColorDark,
-    icon: "#9BA1A6",
-    tabIconDefault: "#9BA1A6",
-    tabIconSelected: tintColorDark
+    headline: ColorPalette.whitish.pureWhite
   }
+};
+
+export const BorderRadius = {
+  md: 10
 };

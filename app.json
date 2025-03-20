@@ -36,9 +36,12 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/Epilogue-VariableFont_wght.ttf"]
+          "fonts": [
+            "./assets/fonts/Epilogue-VariableFont_wght.ttf"
+          ]
         }
-      ]
+      ],
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true
