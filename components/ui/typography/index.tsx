@@ -1,6 +1,8 @@
 import { forwardRef } from "react";
 import { Text, TextStyle } from "react-native";
-import { TypographyProps } from "./types";
+import { ThemedTypographyProps, TypographyProps } from "./types";
+import { ColorPalette } from "@/constants";
+import { useThemeColor } from "@/hooks";
 
 const getFontStyles = (size: number, weight: TextStyle["fontWeight"]) => ({
   fontFamily: "Epilogue",
@@ -12,76 +14,28 @@ export const Typography = forwardRef<Text, TypographyProps>(
   ({ as = "text", style, ...rest }, ref) => {
     switch (as) {
       case "headline-1":
-        return (
-          <Text
-            ref={ref}
-            style={[style, getFontStyles(40, "bold")]}
-            {...rest}
-          />
-        );
+        return <Text ref={ref} style={[style, getFontStyles(40, "bold")]} {...rest} />;
 
       case "headline-2":
-        return (
-          <Text
-            ref={ref}
-            style={[style, getFontStyles(25, "bold")]}
-            {...rest}
-          />
-        );
+        return <Text ref={ref} style={[style, getFontStyles(25, "bold")]} {...rest} />;
 
       case "headline-3":
-        return (
-          <Text
-            ref={ref}
-            style={[style, getFontStyles(22, "semibold")]}
-            {...rest}
-          />
-        );
+        return <Text ref={ref} style={[style, getFontStyles(22, "semibold")]} {...rest} />;
 
       case "headline-3-bold":
-        return (
-          <Text
-            ref={ref}
-            style={[style, getFontStyles(20, "bold")]}
-            {...rest}
-          />
-        );
+        return <Text ref={ref} style={[style, getFontStyles(20, "bold")]} {...rest} />;
 
       case "body-lg":
-        return (
-          <Text
-            ref={ref}
-            style={[style, getFontStyles(18, "bold")]}
-            {...rest}
-          />
-        );
+        return <Text ref={ref} style={[style, getFontStyles(18, "bold")]} {...rest} />;
 
       case "body":
-        return (
-          <Text
-            ref={ref}
-            style={[style, getFontStyles(16, "bold")]}
-            {...rest}
-          />
-        );
+        return <Text ref={ref} style={[style, getFontStyles(16, "bold")]} {...rest} />;
 
       case "paragraph-bold":
-        return (
-          <Text
-            ref={ref}
-            style={[style, getFontStyles(14, "bold")]}
-            {...rest}
-          />
-        );
+        return <Text ref={ref} style={[style, getFontStyles(14, "bold")]} {...rest} />;
 
       case "paragraph":
-        return (
-          <Text
-            ref={ref}
-            style={[style, getFontStyles(12, "semibold")]}
-            {...rest}
-          />
-        );
+        return <Text ref={ref} style={[style, getFontStyles(12, "semibold")]} {...rest} />;
 
       case "text":
       default:
@@ -101,3 +55,12 @@ export const Typography = forwardRef<Text, TypographyProps>(
   }
 );
 Typography.displayName = "Typography";
+
+export const ThemedTypography = forwardRef<Text, ThemedTypographyProps>(
+  ({ lightColor, darkColor, colorName, style, ...rest }, ref) => {
+    const color = useThemeColor({ light: lightColor, dark: darkColor }, colorName);
+
+    return <Typography ref={ref} style={[{ color }, style]} {...rest} />;
+  }
+);
+ThemedTypography.displayName = "ThemedTypography";

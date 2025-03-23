@@ -9,6 +9,15 @@ export type SafeAreaViewProps = Omit<ViewProps, "style"> & {
       | "paddingRight"
       | "paddingBottom"
       | "paddingLeft"
+      | "paddingVertical"
+      | "paddingHorizontal"
     >
   >;
+  transparentHeader?: boolean;
+  disableBottomInset?: boolean;
+};
+
+export type ThemedSafeAreaViewProps = SafeAreaViewProps & {
+  lightColor?: string;
+  darkColor?: string;
 };

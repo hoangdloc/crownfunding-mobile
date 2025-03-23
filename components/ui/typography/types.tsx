@@ -1,4 +1,5 @@
 import { StyleProp, TextProps, TextStyle } from "react-native";
+import { Colors } from "@/constants";
 
 type TypographyVariant =
   | "text"
@@ -22,3 +23,9 @@ type TypographyDefaultProps = Omit<TextProps, "style"> & {
 };
 
 export type TypographyProps = TypographyThemeProps | TypographyDefaultProps;
+
+export type ThemedTypographyProps = TypographyProps & {
+  lightColor?: string;
+  darkColor?: string;
+  colorName: keyof typeof Colors.light & keyof typeof Colors.dark;
+};

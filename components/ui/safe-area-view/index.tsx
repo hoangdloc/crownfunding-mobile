@@ -1,22 +1,25 @@
 import { forwardRef } from "react";
-import { View } from "react-native";
+import { useHeaderHeight } from "@react-navigation/elements";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { SafeAreaViewProps } from "./types";
+import { View } from "react-native";
+import { SafeAreaViewProps, ThemedSafeAreaViewProps } from "./types";
+import { ColorPalette } from "@/constants";
+import { useThemeColor } from "@/hooks";
 
 export const SafeAreaView = forwardRef<View, SafeAreaViewProps>(
-  ({ style, ...rest }, ref) => {
+  ({ transparentHeader = false, disableBottomInset = false, style, ...rest }, ref) => {
     const insets = useSafeAreaInsets();
+    const headerHeight = useHeaderHeight();
 
     return (
       <View
         ref={ref}
         style={[
           {
-            paddingTop: insets.top,
+            paddingTop: transparentHeader ? headerHeight : insets.top,
+            paddingBottom: disableBottomInset ? 0 : insets.bottom,
             paddingRight: insets.right,
-            paddingBottom: insets.bottom,
-            paddingLeft: insets.left,
-            flex: 1
+            paddingLeft: insets.left
           },
           style
         ]}
@@ -26,3 +29,20 @@ export const SafeAreaView = forwardRef<View, SafeAreaViewProps>(
   }
 );
 SafeAreaView.displayName = "SafeAreaView";
+
+export const ThemedSafeAreaView = forwardRef<View, ThemedSafeAreaViewProps>(
+  (
+    {
+      lightColor = ColorPalette.whitish.liteBackground,
+      darkColor = ColorPalette.dark.darkBg,
+      style,
+      ...rest
+    },
+    ref
+  ) => {
+    const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, "background");
+
+    return <SafeAreaView ref={ref} style={[{ backgroundColor }, style]} {...rest} />;
+  }
+);
+ThemedSafeAreaView.displayName = "ThemedSafeAreaView";

@@ -1,31 +1,36 @@
-import { Stack } from "expo-router";
-import { Image, ScrollView, StyleSheet, View } from "react-native";
-import { ms, vs } from "react-native-size-matters";
-import { SafeAreaView } from "@/components/ui";
+import { Link, Stack } from "expo-router";
+import { Image, Pressable, ScrollView, StyleSheet } from "react-native";
+import { ms, mvs, vs } from "react-native-size-matters";
+import { ThemedSafeAreaView } from "@/components/ui";
 import { AppImages } from "@/assets/images";
 import { useThemeColor } from "@/hooks";
 import { BorderRadius, ColorPalette } from "@/constants";
 
 const AuthLayout: React.FC = () => {
-  const containerBackgroundColor = useThemeColor(
-    { light: ColorPalette.whitish.liteBackground, dark: ColorPalette.dark.darkBg },
-    "background"
-  );
   const screenContentBackgroundColor = useThemeColor(
     { light: ColorPalette.whitish.liteBackground, dark: ColorPalette.dark.darkSecondary },
     "background"
   );
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: containerBackgroundColor }]}>
+    <ThemedSafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View>
-          <Image style={styles.logo} source={AppImages.logo} />
-        </View>
+        <Link href="/" asChild>
+          <Pressable>
+            <Image style={styles.logo} source={AppImages.logo} />
+          </Pressable>
+        </Link>
         <Stack
           screenOptions={{
             headerShown: false,
-            contentStyle: [styles.screenContent, { backgroundColor: screenContentBackgroundColor }]
+            contentStyle: [styles.screenContent, { backgroundColor: screenContentBackgroundColor }],
+            gestureEnabled: true,
+            gestureDirection: "horizontal",
+            animation: "slide_from_right",
+            gestureResponseDistance: {
+              top: mvs(100),
+              bottom: mvs(100)
+            }
           }}
           initialRouteName="index"
         >
@@ -33,7 +38,7 @@ const AuthLayout: React.FC = () => {
           <Stack.Screen name="register" />
         </Stack>
       </ScrollView>
-    </SafeAreaView>
+    </ThemedSafeAreaView>
   );
 };
 

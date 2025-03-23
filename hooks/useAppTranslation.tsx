@@ -10,7 +10,10 @@ type UseAppTranslationResponse = Omit<UseTranslationResponse<"translation", unde
 };
 
 export const useAppTranslation = (): UseAppTranslationResponse => {
-  const { t, ...rest } = useTranslation();
-  const typedT = (key: KeyTranslation, options?: TOptions) => t(key, options);
-  return { t: typedT, ...rest };
+  const { t, ...rest } = useTranslation("translation");
+
+  return {
+    ...rest,
+    t: t as UseAppTranslationResponse["t"]
+  };
 };

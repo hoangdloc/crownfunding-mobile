@@ -46,14 +46,20 @@ export const ColorPalette = {
 export const Colors = {
   light: {
     background: ColorPalette.whitish.liteBackground,
-    headline: ColorPalette.neutral.text.text1
+    headline: ColorPalette.neutral.text.text1,
+    paragraph: ColorPalette.neutral.text.text3,
+    link: ColorPalette.primary.color
   },
   dark: {
     background: ColorPalette.dark.darkBg,
-    headline: ColorPalette.whitish.pureWhite
+    headline: ColorPalette.whitish.pureWhite,
+    paragraph: ColorPalette.neutral.text.text3,
+    link: ColorPalette.primary.color
   }
 };
 
 export const BorderRadius = {
   md: 10
 };
+
+export const ActiveOpacity = 0.4;
