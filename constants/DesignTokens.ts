@@ -1,3 +1,5 @@
+import { ms } from "react-native-size-matters";
+
 export const ColorPalette = {
   primary: {
     primaryExtra2: "#f1fbf7",
@@ -48,18 +50,22 @@ export const Colors = {
     background: ColorPalette.whitish.liteBackground,
     headline: ColorPalette.neutral.text.text1,
     paragraph: ColorPalette.neutral.text.text3,
-    link: ColorPalette.primary.color
+    link: ColorPalette.primary.color,
+    border: ColorPalette.whitish.strokeColor,
+    outlineButton: ColorPalette.neutral.text.text2
   },
   dark: {
     background: ColorPalette.dark.darkBg,
     headline: ColorPalette.whitish.pureWhite,
     paragraph: ColorPalette.neutral.text.text3,
-    link: ColorPalette.primary.color
+    link: ColorPalette.primary.color,
+    border: ColorPalette.dark.strokeColor,
+    outlineButton: ColorPalette.whitish.pureWhite
   }
 };
 
 export const BorderRadius = {
-  md: 10
+  md: ms(10)
 };
 
-export const ActiveOpacity = 0.4;
+export const ActiveOpacity = 0.7;

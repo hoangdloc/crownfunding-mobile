@@ -1,7 +1,7 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { ms, mvs } from "react-native-size-matters";
 import { useAppTranslation } from "@/hooks";
-import { AnimatedLink, ThemedTypography } from "@/components/ui";
+import { AnimatedLink, Button, Google, ThemedTypography } from "@/components/ui";
 import { ColorPalette } from "@/constants";
 
 const LoginScreen: React.FC = () => {
@@ -29,6 +29,14 @@ const LoginScreen: React.FC = () => {
           </AnimatedLink>
         </View>
       </View>
+      <View style={styles.formContainer}>
+        <Button block variant="outline" size="lg">
+          <Google />
+          <ThemedTypography as="text" colorName="outlineButton" style={styles.signUpButtonText}>
+            {t("screens.login_screen.sign_in_with_google")}
+          </ThemedTypography>
+        </Button>
+      </View>
     </View>
   );
 };
@@ -37,17 +45,30 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     flex: 1,
+    flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "stretch",
     paddingVertical: mvs(30),
-    paddingHorizontal: ms(20)
+    paddingHorizontal: ms(20),
+    gap: mvs(25)
   },
   headingContainer: {
-    gap: mvs(10)
+    gap: mvs(10),
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
   },
   signUpContainer: {
     flexDirection: "row",
     alignItems: "center"
+  },
+  signUpButtonText: {
+    fontSize: 16,
+    fontWeight: "semibold"
+  },
+  formContainer: {
+    flexDirection: "column",
+    gap: mvs(20)
   }
 });
 

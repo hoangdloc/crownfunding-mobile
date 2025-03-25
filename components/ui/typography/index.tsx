@@ -1,7 +1,6 @@
 import { forwardRef } from "react";
 import { Text, TextStyle } from "react-native";
 import { ThemedTypographyProps, TypographyProps } from "./types";
-import { ColorPalette } from "@/constants";
 import { useThemeColor } from "@/hooks";
 
 const getFontStyles = (size: number, weight: TextStyle["fontWeight"]) => ({
