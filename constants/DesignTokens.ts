@@ -52,7 +52,10 @@ export const Colors = {
     paragraph: ColorPalette.neutral.text.text3,
     link: ColorPalette.primary.color,
     border: ColorPalette.whitish.strokeColor,
-    outlineButton: ColorPalette.neutral.text.text2
+    outlineButton: ColorPalette.neutral.text.text2,
+    placeholderTextColor: ColorPalette.neutral.text.text4,
+    inputColor: ColorPalette.neutral.text.text1,
+    borderContainerInputColor: ColorPalette.whitish.strokeColor
   },
   dark: {
     background: ColorPalette.dark.darkBg,
@@ -60,7 +63,10 @@ export const Colors = {
     paragraph: ColorPalette.neutral.text.text3,
     link: ColorPalette.primary.color,
     border: ColorPalette.dark.strokeColor,
-    outlineButton: ColorPalette.whitish.pureWhite
+    outlineButton: ColorPalette.whitish.pureWhite,
+    placeholderTextColor: ColorPalette.neutral.text.text2,
+    inputColor: ColorPalette.whitish.pureWhite,
+    borderContainerInputColor: ColorPalette.dark.strokeColor
   }
 };
 

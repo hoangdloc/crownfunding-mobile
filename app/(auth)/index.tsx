@@ -3,6 +3,7 @@ import { ms, mvs } from "react-native-size-matters";
 import { useAppTranslation } from "@/hooks";
 import { AnimatedLink, Button, Google, ThemedTypography } from "@/components/ui";
 import { ColorPalette } from "@/constants";
+import SigninForm from "./(components)/SigninForm";
 
 const LoginScreen: React.FC = () => {
   const { t } = useAppTranslation();
@@ -36,6 +37,7 @@ const LoginScreen: React.FC = () => {
             {t("screens.login_screen.sign_in_with_google")}
           </ThemedTypography>
         </Button>
+        <SigninForm />
       </View>
     </View>
   );
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "stretch",
     paddingVertical: mvs(30),
     paddingHorizontal: ms(20),
