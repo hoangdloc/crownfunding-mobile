@@ -22,6 +22,8 @@ export const InputPassword = React.forwardRef<TextInput, InputPasswordProps>(
       autoCapitalize = "none",
       style,
       placeholderTextColor,
+      autoCorrect = false,
+      spellCheck = false,
       onFocus,
       onBlur,
       ...rest
@@ -64,6 +66,8 @@ export const InputPassword = React.forwardRef<TextInput, InputPasswordProps>(
             style
           ]}
           placeholderTextColor={themedPlaceholderTextColor}
+          autoCorrect={autoCorrect}
+          spellCheck={spellCheck}
           onFocus={handleFocus}
           onBlur={handleBlur}
           {...rest}
@@ -90,7 +94,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-
     width: "100%",
     height: mvs(52),
     paddingVertical: mvs(15),

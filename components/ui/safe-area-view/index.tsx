@@ -6,7 +6,7 @@ import { SafeAreaViewProps, ThemedSafeAreaViewProps } from "./types";
 import { ColorPalette } from "@/constants";
 import { useThemeColor } from "@/hooks";
 
-export const SafeAreaView = forwardRef<View, SafeAreaViewProps>(
+export const SafeAreaView = forwardRef<React.ElementRef<typeof View>, SafeAreaViewProps>(
   ({ transparentHeader = false, disableBottomInset = false, style, ...rest }, ref) => {
     const insets = useSafeAreaInsets();
     const headerHeight = useHeaderHeight();
@@ -30,7 +30,10 @@ export const SafeAreaView = forwardRef<View, SafeAreaViewProps>(
 );
 SafeAreaView.displayName = "SafeAreaView";
 
-export const ThemedSafeAreaView = forwardRef<View, ThemedSafeAreaViewProps>(
+export const ThemedSafeAreaView = forwardRef<
+  React.ElementRef<typeof View>,
+  ThemedSafeAreaViewProps
+>(
   (
     {
       lightColor = ColorPalette.whitish.liteBackground,

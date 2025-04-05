@@ -36,6 +36,7 @@ const AuthLayout: React.FC = () => {
         >
           <Stack.Screen name="index" />
           <Stack.Screen name="register" />
+          <Stack.Screen name="forgot-password" />
         </Stack>
       </ScrollView>
     </ThemedSafeAreaView>

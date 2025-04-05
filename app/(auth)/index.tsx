@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { ms, mvs } from "react-native-size-matters";
 import { useAppTranslation } from "@/hooks";
 import { AnimatedLink, Button, Google, ThemedTypography } from "@/components/ui";
@@ -45,8 +45,6 @@ const LoginScreen: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "stretch",

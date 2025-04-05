@@ -55,7 +55,9 @@ export const Colors = {
     outlineButton: ColorPalette.neutral.text.text2,
     placeholderTextColor: ColorPalette.neutral.text.text4,
     inputColor: ColorPalette.neutral.text.text1,
-    borderContainerInputColor: ColorPalette.whitish.strokeColor
+    borderContainerInputColor: ColorPalette.whitish.strokeColor,
+    label: ColorPalette.neutral.text.text2,
+    error: ColorPalette.error
   },
   dark: {
     background: ColorPalette.dark.darkBg,
@@ -66,7 +68,9 @@ export const Colors = {
     outlineButton: ColorPalette.whitish.pureWhite,
     placeholderTextColor: ColorPalette.neutral.text.text2,
     inputColor: ColorPalette.whitish.pureWhite,
-    borderContainerInputColor: ColorPalette.dark.strokeColor
+    borderContainerInputColor: ColorPalette.dark.strokeColor,
+    label: ColorPalette.neutral.text.text3,
+    error: ColorPalette.error
   }
 };
 
