@@ -19,7 +19,8 @@ export const SafeAreaView = forwardRef<React.ElementRef<typeof View>, SafeAreaVi
             paddingTop: transparentHeader ? headerHeight : insets.top,
             paddingBottom: disableBottomInset ? 0 : insets.bottom,
             paddingRight: insets.right,
-            paddingLeft: insets.left
+            paddingLeft: insets.left,
+            flex: 1
           },
           style
         ]}

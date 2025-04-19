@@ -50,7 +50,8 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
           size === "lg" && styles.lg,
           block && styles.block,
           variant === "outline" && colorScheme === "light" && styles.lightOutline,
-          variant === "outline" && colorScheme === "dark" && styles.darkOutline
+          variant === "outline" && colorScheme === "dark" && styles.darkOutline,
+          variant === "primary" && styles.primary
         ]}
         onPress={handlePress}
         {...rest}
@@ -94,5 +95,8 @@ const styles = StyleSheet.create({
   darkOutline: {
     borderWidth: 1,
     borderColor: ColorPalette.dark.strokeColor
+  },
+  primary: {
+    backgroundColor: ColorPalette.primary.color
   }
 });

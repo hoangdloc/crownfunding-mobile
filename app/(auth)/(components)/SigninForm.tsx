@@ -10,10 +10,12 @@ import {
   Form,
   Input,
   InputPassword,
-  ThemedTypography
+  ThemedTypography,
+  Typography
 } from "@/components/ui";
 import { SigninSchema, SigninValues } from "@/validators/auth";
 import { StyleSheet } from "react-native";
+import { ColorPalette } from "@/constants";
 
 const SigninForm: React.FC = () => {
   const { t } = useAppTranslation();
@@ -82,8 +84,8 @@ const SigninForm: React.FC = () => {
           {t("screens.login_screen.forgot_password")}
         </ThemedTypography>
       </AnimatedLink>
-      <Button variant="primary" block>
-        <Text>{t("screens.login_screen.sign_in")}</Text>
+      <Button variant="primary" block size="lg" onPress={onSubmit}>
+        <Typography style={styles.signUpButtonText}>{t("screens.login_screen.sign_in")}</Typography>
       </Button>
     </Form.Root>
   );
@@ -103,5 +105,10 @@ const styles = StyleSheet.create({
   forgotPasswordText: {
     fontSize: 14,
     fontWeight: "medium"
+  },
+  signUpButtonText: {
+    fontSize: 16,
+    fontWeight: "semibold",
+    color: ColorPalette.whitish.pureWhite
   }
 });

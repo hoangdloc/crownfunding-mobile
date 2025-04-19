@@ -19,11 +19,12 @@ export const InputPassword = React.forwardRef<TextInput, InputPasswordProps>(
     {
       containerStyles,
       leftIcon,
-      autoCapitalize = "none",
       style,
       placeholderTextColor,
       autoCorrect = false,
       spellCheck = false,
+      autoCapitalize = "none",
+      autoComplete = "off",
       onFocus,
       onBlur,
       ...rest
@@ -47,14 +48,7 @@ export const InputPassword = React.forwardRef<TextInput, InputPasswordProps>(
     };
 
     return (
-      <View
-        style={[
-          styles.container,
-          colorScheme === "dark" ? styles.containerDark : styles.containerLight,
-          isFocused && styles.inputFocused,
-          containerStyles
-        ]}
-      >
+      <View style={[styles.container, containerStyles]}>
         {leftIcon && <View style={[styles.iconWrapper, styles.leftIcon]}>{leftIcon}</View>}
         <TextInput
           ref={ref}
@@ -63,11 +57,15 @@ export const InputPassword = React.forwardRef<TextInput, InputPasswordProps>(
           style={[
             styles.input,
             colorScheme === "dark" ? styles.inputDark : styles.inputLight,
+            isFocused && styles.inputFocused,
+            !!leftIcon && styles.hasLeftIcon,
+            styles.hasRightIcon,
             style
           ]}
           placeholderTextColor={themedPlaceholderTextColor}
           autoCorrect={autoCorrect}
           spellCheck={spellCheck}
+          autoComplete={autoComplete}
           onFocus={handleFocus}
           onBlur={handleBlur}
           {...rest}
@@ -91,31 +89,22 @@ InputPassword.displayName = "InputPassword";
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
     width: "100%",
     height: mvs(52),
-    paddingVertical: mvs(15),
-    paddingHorizontal: mvs(25),
-    borderWidth: 1,
-    borderRadius: BorderRadius.md
-  },
-  containerLight: {
-    borderColor: Colors.light.borderContainerInputColor
-  },
-  containerDark: {
-    borderColor: Colors.dark.borderContainerInputColor
+    position: "relative"
   },
   input: {
     flexShrink: 1,
     width: "100%",
     height: "100%",
     padding: 0,
+    paddingVertical: mvs(15),
+    paddingHorizontal: mvs(25),
     fontSize: 14,
     fontWeight: "medium",
     fontFamily: "Epilogue",
-    borderWidth: 0,
+    borderWidth: 1,
+    borderRadius: BorderRadius.md,
     textAlignVertical: "center",
     outline: "none",
     ...Platform.select({
@@ -130,24 +119,35 @@ const styles = StyleSheet.create({
     })
   },
   inputLight: {
+    borderColor: Colors.light.borderContainerInputColor,
     color: Colors.light.inputColor
   },
   inputDark: {
+    borderColor: Colors.dark.borderContainerInputColor,
     color: Colors.dark.inputColor
   },
   inputFocused: {
     borderColor: ColorPalette.primary.color
   },
+  hasLeftIcon: {
+    paddingLeft: ms(58)
+  },
+  hasRightIcon: {
+    paddingRight: ms(58)
+  },
   iconWrapper: {
     width: 24,
     height: 24,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    position: "absolute",
+    top: "50%",
+    transform: [{ translateY: "-50%" }]
   },
   rightIcon: {
-    marginLeft: ms(8)
+    right: ms(25)
   },
   leftIcon: {
-    marginRight: ms(8)
+    left: ms(25)
   }
 });
