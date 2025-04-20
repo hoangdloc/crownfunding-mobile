@@ -18,7 +18,7 @@ const LoginScreen: React.FC = () => {
         <ThemedTypography as="body-lg" colorName="headline">
           {t("screens.login_screen.welcome_back")}
         </ThemedTypography>
-        <View style={styles.signUpContainer}>
+        <View style={styles.loginContainer}>
           <ThemedTypography
             as="paragraph"
             lightColor={ColorPalette.neutral.text.text3}
@@ -37,7 +37,7 @@ const LoginScreen: React.FC = () => {
       <View style={styles.formContainer}>
         <Button block variant="outline" size="lg">
           <Google />
-          <ThemedTypography as="text" colorName="outlineButton" style={styles.signUpButtonText}>
+          <ThemedTypography as="text" colorName="outlineButton" style={styles.loginButtonText}>
             {t("screens.login_screen.sign_in_with_google")}
           </ThemedTypography>
         </Button>
@@ -49,7 +49,7 @@ const LoginScreen: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    marginVertical: "auto",
     borderRadius: BorderRadius.md,
     flexDirection: "column",
     justifyContent: "flex-start",
@@ -64,11 +64,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  signUpContainer: {
+  loginContainer: {
     flexDirection: "row",
     alignItems: "center"
   },
-  signUpButtonText: {
+  loginButtonText: {
     fontSize: 16,
     fontWeight: "semibold"
   },

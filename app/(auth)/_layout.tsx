@@ -22,7 +22,7 @@ const AuthLayout: React.FC = () => {
             contentStyle: styles.stackContent,
             gestureEnabled: true,
             gestureDirection: "horizontal",
-            animation: "slide_from_right",
+            animation: "none",
             gestureResponseDistance: {
               top: mvs(100),
               bottom: mvs(100)
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     marginTop: ms(24)
   },
   logo: {
-    height: ms(40),
-    width: ms(40)
+    height: mvs(40),
+    width: mvs(40)
   },
   stackContent: {
     backgroundColor: "transparent",
