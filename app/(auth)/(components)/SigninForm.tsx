@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useForm } from "react-hook-form";
 import { ms } from "react-native-size-matters";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,7 +14,6 @@ import {
   Typography
 } from "@/components/ui";
 import { SigninSchema, SigninValues } from "@/validators/auth";
-import { StyleSheet } from "react-native";
 import { ColorPalette } from "@/constants";
 
 const SigninForm: React.FC = () => {

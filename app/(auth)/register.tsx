@@ -1,9 +1,11 @@
+import { StyleSheet, View } from "react-native";
+import { ms, mvs } from "react-native-size-matters";
 import { AnimatedLink, Google, ThemedTypography, Button } from "@/components/ui";
 import { BorderRadius, ColorPalette } from "@/constants";
 import { useAppTranslation, useThemeColor } from "@/hooks";
-import { StyleSheet, View } from "react-native";
-import { ms, mvs } from "react-native-size-matters";
 import SignupForm from "./(components)/SignupForm";
+import { AuthInnerLayout } from "@/components/layouts";
+import { KeyboardShift } from "@/components/common";
 
 const RegisterSreen: React.FC = () => {
   const { t } = useAppTranslation();
@@ -13,46 +15,50 @@ const RegisterSreen: React.FC = () => {
   );
 
   return (
-    <View style={[styles.container, { backgroundColor: containerBackgroundColor }]}>
-      <View style={styles.headingContainer}>
-        <ThemedTypography as="body-lg" colorName="headline" style={styles.signUpText}>
-          {t("screens.signup_screen.sign_up")}
-        </ThemedTypography>
-        <View style={styles.signUpContainer}>
-          <ThemedTypography
-            as="paragraph"
-            lightColor={ColorPalette.neutral.text.text3}
-            darkColor={ColorPalette.neutral.text.text3}
-            colorName="paragraph"
-          >
-            {t("screens.signup_screen.already_have_an_account")}{" "}
-          </ThemedTypography>
-          <AnimatedLink href="/">
-            <ThemedTypography as="paragraph" colorName="link">
-              {t("screens.signup_screen.sign_in")}
+    <KeyboardShift>
+      <AuthInnerLayout>
+        <View style={[styles.container, { backgroundColor: containerBackgroundColor }]}>
+          <View style={styles.headingContainer}>
+            <ThemedTypography as="body-lg" colorName="headline" style={styles.signUpText}>
+              {t("screens.signup_screen.sign_up")}
             </ThemedTypography>
-          </AnimatedLink>
+            <View style={styles.signUpContainer}>
+              <ThemedTypography
+                as="paragraph"
+                lightColor={ColorPalette.neutral.text.text3}
+                darkColor={ColorPalette.neutral.text.text3}
+                colorName="paragraph"
+              >
+                {t("screens.signup_screen.already_have_an_account")}{" "}
+              </ThemedTypography>
+              <AnimatedLink href="/">
+                <ThemedTypography as="paragraph" colorName="link">
+                  {t("screens.signup_screen.sign_in")}
+                </ThemedTypography>
+              </AnimatedLink>
+            </View>
+          </View>
+          <View style={styles.formContainer}>
+            <Button block variant="outline" size="lg">
+              <Google />
+              <ThemedTypography as="text" colorName="outlineButton" style={styles.signUpButtonText}>
+                {t("screens.signup_screen.sign_up_with_google")}
+              </ThemedTypography>
+            </Button>
+            <ThemedTypography
+              as="paragraph"
+              lightColor={ColorPalette.neutral.text.text3}
+              darkColor={ColorPalette.neutral.text.text3}
+              colorName="paragraph"
+              style={styles.signUpWithEmailText}
+            >
+              {t("screens.signup_screen.or_sign_up_with_email")}
+            </ThemedTypography>
+            <SignupForm />
+          </View>
         </View>
-      </View>
-      <View style={styles.formContainer}>
-        <Button block variant="outline" size="lg">
-          <Google />
-          <ThemedTypography as="text" colorName="outlineButton" style={styles.signUpButtonText}>
-            {t("screens.signup_screen.sign_up_with_google")}
-          </ThemedTypography>
-        </Button>
-        <ThemedTypography
-          as="paragraph"
-          lightColor={ColorPalette.neutral.text.text3}
-          darkColor={ColorPalette.neutral.text.text3}
-          colorName="paragraph"
-          style={styles.signUpWithEmailText}
-        >
-          {t("screens.signup_screen.or_sign_up_with_email")}
-        </ThemedTypography>
-        <SignupForm />
-      </View>
-    </View>
+      </AuthInnerLayout>
+    </KeyboardShift>
   );
 };
 

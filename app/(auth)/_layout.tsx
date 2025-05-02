@@ -1,62 +1,35 @@
-import { Link, Stack } from "expo-router";
-import { Button, Image, Pressable, ScrollView, StyleSheet, View } from "react-native";
-import { ms, mvs, vs } from "react-native-size-matters";
-import { ThemedSafeAreaView } from "@/components/ui";
-import { AppImages } from "@/assets/images";
+import { Stack } from "expo-router";
+import { StyleSheet } from "react-native";
+import { mvs } from "react-native-size-matters";
 
 const AuthLayout: React.FC = () => {
   return (
-    <ThemedSafeAreaView>
-      <ScrollView
-        contentContainerStyle={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}
-      >
-        <Link href="/" asChild style={styles.link}>
-          <Pressable>
-            <Image style={styles.logo} source={AppImages.logo} />
-          </Pressable>
-        </Link>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            contentStyle: styles.stackContent,
-            gestureEnabled: true,
-            gestureDirection: "horizontal",
-            animation: "none",
-            gestureResponseDistance: {
-              top: mvs(100),
-              bottom: mvs(100)
-            }
-          }}
-          initialRouteName="index"
-        >
-          <Stack.Screen name="index" />
-          <Stack.Screen name="register" />
-          <Stack.Screen name="forgot-password" />
-        </Stack>
-      </ScrollView>
-    </ThemedSafeAreaView>
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        contentStyle: styles.stackContent,
+        gestureEnabled: true,
+        gestureDirection: "horizontal",
+        animation: "none",
+        gestureResponseDistance: {
+          top: mvs(100),
+          bottom: mvs(100)
+        }
+      }}
+      initialRouteName="index"
+    >
+      <Stack.Screen name="index" />
+      <Stack.Screen name="register" />
+      <Stack.Screen name="forgot-password" />
+    </Stack>
   );
 };
 
 export default AuthLayout;
 
 const styles = StyleSheet.create({
-  scrollContainer: {
-    flexGrow: 1,
-    gap: vs(20),
-    marginHorizontal: ms(24)
-  },
-  link: {
-    marginTop: ms(24)
-  },
-  logo: {
-    height: mvs(40),
-    width: mvs(40)
-  },
   stackContent: {
     backgroundColor: "transparent",
-    flexGrow: 1,
-    marginBottom: ms(24)
+    flexGrow: 1
   }
 });
