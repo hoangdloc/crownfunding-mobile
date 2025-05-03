@@ -16,11 +16,11 @@ const AuthLayout: React.FC = () => {
           bottom: mvs(100)
         }
       }}
-      initialRouteName="index"
+      initialRouteName="sign-in/index"
     >
-      <Stack.Screen name="index" />
-      <Stack.Screen name="register" />
-      <Stack.Screen name="forgot-password" />
+      <Stack.Screen name="sign-in/index" />
+      <Stack.Screen name="register/index" />
+      <Stack.Screen name="forgot-password/index" />
     </Stack>
   );
 };

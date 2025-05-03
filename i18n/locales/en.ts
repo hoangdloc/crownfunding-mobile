@@ -26,6 +26,15 @@ export default {
       create_account: "Create my account",
       sign_up_with_google: "Sign up with Google",
       or_sign_up_with_email: "Or sign up with email"
+    },
+    forgot_password_screen: {
+      step_1: {
+        title: "Forgot Password",
+        description: "Enter your email address so that we can send you OTP.",
+        email: "Email",
+        email_placeholder: "example@gmail.com",
+        send_otp: "Send OTP"
+      }
     }
   },
   validations: {

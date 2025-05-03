@@ -78,7 +78,7 @@ const SigninForm: React.FC = () => {
           )}
         />
       </View>
-      <AnimatedLink href="/forgot-password" style={styles.forgotPasswordLink}>
+      <AnimatedLink href="/(auth)/forgot-password" style={styles.forgotPasswordLink}>
         <ThemedTypography colorName="link" style={styles.forgotPasswordText}>
           {t("screens.login_screen.forgot_password")}
         </ThemedTypography>

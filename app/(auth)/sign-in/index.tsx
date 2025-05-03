@@ -1,12 +1,12 @@
-import { StyleSheet, View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { ms, mvs } from "react-native-size-matters";
-import { AnimatedLink, Google, ThemedTypography, Button } from "@/components/ui";
-import { BorderRadius, ColorPalette } from "@/constants";
 import { useAppTranslation, useThemeColor } from "@/hooks";
-import SignupForm from "./(components)/SignupForm";
+import { AnimatedLink, Button, Google, ThemedTypography } from "@/components/ui";
+import { BorderRadius, ColorPalette } from "@/constants";
+import SigninForm from "./_components/SigninForm";
 import { AuthInnerLayout } from "@/components/layouts";
 
-const RegisterSreen: React.FC = () => {
+const LoginScreen: React.FC = () => {
   const { t } = useAppTranslation();
   const containerBackgroundColor = useThemeColor(
     { light: ColorPalette.whitish.liteBackground, dark: ColorPalette.dark.darkSecondary },
@@ -17,21 +17,21 @@ const RegisterSreen: React.FC = () => {
     <AuthInnerLayout>
       <View style={[styles.container, { backgroundColor: containerBackgroundColor }]}>
         <View style={styles.headingContainer}>
-          <ThemedTypography as="body-lg" colorName="headline" style={styles.signUpText}>
-            {t("screens.signup_screen.sign_up")}
+          <ThemedTypography as="body-lg" colorName="headline">
+            {t("screens.login_screen.welcome_back")}
           </ThemedTypography>
-          <View style={styles.signUpContainer}>
+          <View style={styles.loginContainer}>
             <ThemedTypography
               as="paragraph"
               lightColor={ColorPalette.neutral.text.text3}
               darkColor={ColorPalette.neutral.text.text3}
               colorName="paragraph"
             >
-              {t("screens.signup_screen.already_have_an_account")}{" "}
+              {t("screens.login_screen.dont_have_an_account")}{" "}
             </ThemedTypography>
-            <AnimatedLink href="/">
+            <AnimatedLink href="/(auth)/register">
               <ThemedTypography as="paragraph" colorName="link">
-                {t("screens.signup_screen.sign_in")}
+                {t("screens.login_screen.sign_up")}
               </ThemedTypography>
             </AnimatedLink>
           </View>
@@ -39,20 +39,11 @@ const RegisterSreen: React.FC = () => {
         <View style={styles.formContainer}>
           <Button block variant="outline" size="lg">
             <Google />
-            <ThemedTypography as="text" colorName="outlineButton" style={styles.signUpButtonText}>
-              {t("screens.signup_screen.sign_up_with_google")}
+            <ThemedTypography as="text" colorName="outlineButton" style={styles.loginButtonText}>
+              {t("screens.login_screen.sign_in_with_google")}
             </ThemedTypography>
           </Button>
-          <ThemedTypography
-            as="paragraph"
-            lightColor={ColorPalette.neutral.text.text3}
-            darkColor={ColorPalette.neutral.text.text3}
-            colorName="paragraph"
-            style={styles.signUpWithEmailText}
-          >
-            {t("screens.signup_screen.or_sign_up_with_email")}
-          </ThemedTypography>
-          <SignupForm />
+          <SigninForm />
         </View>
       </View>
     </AuthInnerLayout>
@@ -76,17 +67,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  signUpText: {
-    textTransform: "capitalize"
-  },
-  signUpWithEmailText: {
-    textAlign: "center"
-  },
-  signUpContainer: {
+  loginContainer: {
     flexDirection: "row",
     alignItems: "center"
   },
-  signUpButtonText: {
+  loginButtonText: {
     fontSize: 16,
     fontWeight: "semibold"
   },
@@ -96,4 +81,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default RegisterSreen;
+export default LoginScreen;

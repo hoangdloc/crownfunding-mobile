@@ -26,6 +26,15 @@ export default {
       create_account: "Tạo tài khoản của tôi",
       sign_up_with_google: "Đăng ký với Google",
       or_sign_up_with_email: "Hoặc đăng ký bằng email"
+    },
+    forgot_password_screen: {
+      step_1: {
+        title: "Quên mật khẩu",
+        description: "Nhập địa chỉ email của bạn để chúng tôi có thể gửi OTP cho bạn.",
+        email: "Email",
+        email_placeholder: "example@gmail.com",
+        send_otp: "Gửi OTP"
+      }
     }
   },
   validations: {
