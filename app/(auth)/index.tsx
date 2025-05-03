@@ -5,7 +5,6 @@ import { AnimatedLink, Button, Google, ThemedTypography } from "@/components/ui"
 import { BorderRadius, ColorPalette } from "@/constants";
 import SigninForm from "./(components)/SigninForm";
 import { AuthInnerLayout } from "@/components/layouts";
-import { KeyboardShift } from "@/components/common";
 
 const LoginScreen: React.FC = () => {
   const { t } = useAppTranslation();
@@ -15,41 +14,39 @@ const LoginScreen: React.FC = () => {
   );
 
   return (
-    <KeyboardShift>
-      <AuthInnerLayout>
-        <View style={[styles.container, { backgroundColor: containerBackgroundColor }]}>
-          <View style={styles.headingContainer}>
-            <ThemedTypography as="body-lg" colorName="headline">
-              {t("screens.login_screen.welcome_back")}
+    <AuthInnerLayout>
+      <View style={[styles.container, { backgroundColor: containerBackgroundColor }]}>
+        <View style={styles.headingContainer}>
+          <ThemedTypography as="body-lg" colorName="headline">
+            {t("screens.login_screen.welcome_back")}
+          </ThemedTypography>
+          <View style={styles.loginContainer}>
+            <ThemedTypography
+              as="paragraph"
+              lightColor={ColorPalette.neutral.text.text3}
+              darkColor={ColorPalette.neutral.text.text3}
+              colorName="paragraph"
+            >
+              {t("screens.login_screen.dont_have_an_account")}{" "}
             </ThemedTypography>
-            <View style={styles.loginContainer}>
-              <ThemedTypography
-                as="paragraph"
-                lightColor={ColorPalette.neutral.text.text3}
-                darkColor={ColorPalette.neutral.text.text3}
-                colorName="paragraph"
-              >
-                {t("screens.login_screen.dont_have_an_account")}{" "}
+            <AnimatedLink href="/register">
+              <ThemedTypography as="paragraph" colorName="link">
+                {t("screens.login_screen.sign_up")}
               </ThemedTypography>
-              <AnimatedLink href="/register">
-                <ThemedTypography as="paragraph" colorName="link">
-                  {t("screens.login_screen.sign_up")}
-                </ThemedTypography>
-              </AnimatedLink>
-            </View>
-          </View>
-          <View style={styles.formContainer}>
-            <Button block variant="outline" size="lg">
-              <Google />
-              <ThemedTypography as="text" colorName="outlineButton" style={styles.loginButtonText}>
-                {t("screens.login_screen.sign_in_with_google")}
-              </ThemedTypography>
-            </Button>
-            <SigninForm />
+            </AnimatedLink>
           </View>
         </View>
-      </AuthInnerLayout>
-    </KeyboardShift>
+        <View style={styles.formContainer}>
+          <Button block variant="outline" size="lg">
+            <Google />
+            <ThemedTypography as="text" colorName="outlineButton" style={styles.loginButtonText}>
+              {t("screens.login_screen.sign_in_with_google")}
+            </ThemedTypography>
+          </Button>
+          <SigninForm />
+        </View>
+      </View>
+    </AuthInnerLayout>
   );
 };
 

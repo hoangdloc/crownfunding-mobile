@@ -3,6 +3,7 @@ import { ms, vs, mvs } from "react-native-size-matters";
 import { Link } from "expo-router";
 import { ThemedSafeAreaView } from "../ui";
 import { AppImages } from "@/assets/images";
+import { KeyboardShift } from "../common";
 
 type AuthInnerLayoutProps = {
   children?: React.ReactNode;
@@ -10,19 +11,21 @@ type AuthInnerLayoutProps = {
 
 export const AuthInnerLayout: React.FC<AuthInnerLayoutProps> = ({ children }) => {
   return (
-    <ThemedSafeAreaView>
-      <ScrollView
-        contentContainerStyle={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}
-      >
-        <Link href="/" asChild>
-          <Pressable>
-            <Image style={styles.logo} source={AppImages.logo} />
-          </Pressable>
-        </Link>
-        {children}
-      </ScrollView>
-    </ThemedSafeAreaView>
+    <KeyboardShift>
+      <ThemedSafeAreaView>
+        <ScrollView
+          contentContainerStyle={styles.scrollContainer}
+          showsVerticalScrollIndicator={false}
+        >
+          <Link href="/" asChild>
+            <Pressable>
+              <Image style={styles.logo} source={AppImages.logo} />
+            </Pressable>
+          </Link>
+          {children}
+        </ScrollView>
+      </ThemedSafeAreaView>
+    </KeyboardShift>
   );
 };
 
